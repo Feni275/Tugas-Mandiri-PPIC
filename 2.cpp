@@ -1,24 +1,31 @@
 #include <stdio.h>
 
 int main() {
-    int A[11] = {12, 15, 7, 10, 5, 2, 17, 25, 9, 20, 35};
-    int genap[11];
+    char A[10] = {'S', 'T', 'T', 'M', 'A', 'N', 'D', 'A', 'L', 'A'};
+    char C;
     int count = 0;
 
-    for (int i = 0; i < 11; i++) {
-        if (A[i] % 2 == 0) {
-            genap[count] = A[i];
+    printf("Isi array:\n");
+    for (int i = 0; i < 10; i++) {
+        printf("%c ", A[i]);
+    }
+    printf("\n");
+
+    printf("Masukkan karakter: ");
+    scanf(" %c", &C);
+
+    for (int i = 0; i < 10; i++) {
+        if (A[i] == C) {
             count++;
         }
     }
 
-    printf("Nilai genap yang disimpan dalam array:\n");
-    for (int i = 0; i < count; i++) {
-        printf("%d", genap[i]);
-        if (i < count - 1) {
-        	printf(" ");
-		}
+    if (count > 0) {
+        printf("ADA\n");
+        printf("%d\n", count);
+    } else {
+        printf("TIDAK ADA\n");
     }
-    printf("\n");
+
     return 0;
 }

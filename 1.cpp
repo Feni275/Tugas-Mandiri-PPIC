@@ -1,63 +1,36 @@
 #include <stdio.h>
 
 int main() {
-    int A[11];
-    int input;
-    int count = 0;
+    int A[11] = {12, 17, 10, 5, 15, 25, 11, 7, 25, 16, 19};
+    int N;
+    int found = 0;
 
-    printf("Masukkan data (akhiri dengan 999):\n");
-    while (count < 11) {
-        scanf("%d", &input);
-        if (input == 999) {
-            break;
-        }
-        A[count] = input;
-        count++;
-    }
-    
-    printf("a. A:\n");
-    for (int i = 0; i < count; i++) {
+    printf("Isi array:\n");
+    for (int i = 0; i < 11; i++) {
         printf("%d ", A[i]);
     }
     printf("\n");
 
-    int B[11];
-    int b_count = 0;
-    for (int i = 0; i < count; i++) {
-        if (A[i] > 9) {
-            B[b_count] = A[i];
-            b_count++;
+    printf("Masukkan bilangan integer: ");
+    scanf("%d", &N);
+
+    printf("Memeriksa...\n");
+    for (int i = 0; i < 11; i++) {
+        if (A[i] == N) {
+            if (!found) {
+                printf("ADA\n");
+                printf("Lokasi bilangan yang sama: ");
+            }
+            printf("%d ", i);
+            found = 1;
         }
     }
 
-    printf("b. A (nilai > 9):\n");
-    for (int i = 0; i < b_count; i++) {
-        printf("%d ", B[i]);
+    if (!found) {
+        printf("TIDAK ADA\n");
+    } else {
+        printf("\n");
     }
-    printf("\n");
-
-    int C[11];
-    int c_count = 0;
-    for (int i = 0; i < count; i++) {
-        if (A[i] % 2 != 0) {
-            C[c_count] = A[i];
-            c_count++;
-        }
-    }
-
-    printf("c. A (nilai ganjil):\n");
-    for (int i = 0; i < c_count; i++) {
-        printf("%d ", C[i]);
-    }
-    printf("\n");
-    
-    printf("d. A (ganjil dengan tata letak):\n");
-    for (int i = 0; i < count; i++) {
-        if (A[i] % 2 != 0) {
-            printf("%d ", A[i]);
-        }
-    }
-    printf("\n");
 
     return 0;
 }
